@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Add5c7f8910a7c00RelationshipsToUserActionTable extends Migration
+class Add5c7f955912f60RelationshipsToUserActionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class Add5c7f8910a7c00RelationshipsToUserActionTable extends Migration
         Schema::table('user_actions', function(Blueprint $table) {
             if (!Schema::hasColumn('user_actions', 'user_id')) {
                 $table->integer('user_id')->unsigned()->nullable();
-                $table->foreign('user_id', '273544_5c7d15fd3a22c')->references('id')->on('users')->onDelete('cascade');
+                $table->foreign('user_id', '274240_5c7f955126f3f')->references('id')->on('users')->onDelete('cascade');
                 }
                 
         });
@@ -30,8 +30,8 @@ class Add5c7f8910a7c00RelationshipsToUserActionTable extends Migration
     {
         Schema::table('user_actions', function(Blueprint $table) {
             if(Schema::hasColumn('user_actions', 'user_id')) {
-                $table->dropForeign('273544_5c7d15fd3a22c');
-                $table->dropIndex('273544_5c7d15fd3a22c');
+                $table->dropForeign('274240_5c7f955126f3f');
+                $table->dropIndex('274240_5c7f955126f3f');
                 $table->dropColumn('user_id');
             }
             
