@@ -23,6 +23,8 @@ class Meeting extends Model
     protected $fillable = ['name', 'city', 'start_date', 'end_date', 'project_id', 'status_id'];
     protected $hidden = [];
     public static $searchable = [
+        'name',
+        'city',
     ];
     
     public static function boot()

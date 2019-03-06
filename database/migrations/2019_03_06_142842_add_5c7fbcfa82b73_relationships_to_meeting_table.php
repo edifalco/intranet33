@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Add5c7f9837a47c6RelationshipsToMeetingTable extends Migration
+class Add5c7fbcfa82b73RelationshipsToMeetingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -33,16 +33,6 @@ class Add5c7f9837a47c6RelationshipsToMeetingTable extends Migration
     public function down()
     {
         Schema::table('meetings', function(Blueprint $table) {
-            if(Schema::hasColumn('meetings', 'project_id')) {
-                $table->dropForeign('273594_5c7d1784d7406');
-                $table->dropIndex('273594_5c7d1784d7406');
-                $table->dropColumn('project_id');
-            }
-            if(Schema::hasColumn('meetings', 'status_id')) {
-                $table->dropForeign('273594_5c7d1784f2a41');
-                $table->dropIndex('273594_5c7d1784f2a41');
-                $table->dropColumn('status_id');
-            }
             
         });
     }

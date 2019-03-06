@@ -22,6 +22,7 @@ class Project extends Model
     protected $fillable = ['name', 'start_date', 'end_date', 'logo', 'status_id'];
     protected $hidden = [];
     public static $searchable = [
+        'name',
     ];
     
     public static function boot()

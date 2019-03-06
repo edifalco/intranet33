@@ -20,7 +20,7 @@
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($faq_categories) > 0 ? 'datatable' : '' }} @can('faq_category_delete') dt-select @endcan">
+            <table class="table table-bordered table-striped ajaxTable @can('faq_category_delete') dt-select @endcan">
                 <thead>
                     <tr>
                         @can('faq_category_delete')
@@ -32,42 +32,6 @@
 
                     </tr>
                 </thead>
-                
-                <tbody>
-                    @if (count($faq_categories) > 0)
-                        @foreach ($faq_categories as $faq_category)
-                            <tr data-entry-id="{{ $faq_category->id }}">
-                                @can('faq_category_delete')
-                                    <td></td>
-                                @endcan
-
-                                <td field-key='title'>{{ $faq_category->title }}</td>
-                                                                <td>
-                                    @can('faq_category_view')
-                                    <a href="{{ route('admin.faq_categories.show',[$faq_category->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>
-                                    @endcan
-                                    @can('faq_category_edit')
-                                    <a href="{{ route('admin.faq_categories.edit',[$faq_category->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>
-                                    @endcan
-                                    @can('faq_category_delete')
-{!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
-                                        'route' => ['admin.faq_categories.destroy', $faq_category->id])) !!}
-                                    {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                </td>
-
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="6">@lang('global.app_no_entries_in_table')</td>
-                        </tr>
-                    @endif
-                </tbody>
             </table>
         </div>
     </div>
@@ -78,6 +42,15 @@
         @can('faq_category_delete')
             window.route_mass_crud_entries_destroy = '{{ route('admin.faq_categories.mass_destroy') }}';
         @endcan
-
+        $(document).ready(function () {
+            window.dtDefaultOptions.ajax = '{!! route('admin.faq_categories.index') !!}';
+            window.dtDefaultOptions.columns = [@can('faq_category_delete')
+                    {data: 'massDelete', name: 'id', searchable: false, sortable: false},
+                @endcan{data: 'title', name: 'title'},
+                
+                {data: 'actions', name: 'actions', searchable: false, sortable: false}
+            ];
+            processAjaxTables();
+        });
     </script>
 @endsection

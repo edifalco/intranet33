@@ -16,6 +16,8 @@ class FaqQuestion extends Model
     protected $fillable = ['question_text', 'answer_text', 'category_id'];
     protected $hidden = [];
     public static $searchable = [
+        'question_text',
+        'answer_text',
     ];
     
     public static function boot()
