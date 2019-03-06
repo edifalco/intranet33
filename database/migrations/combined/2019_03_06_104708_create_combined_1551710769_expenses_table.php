@@ -23,8 +23,8 @@ class CreateCombined1551710769ExpensesTable extends Migration
                 $table->decimal('budget_subtotal', 15, 2)->nullable();
                 $table->decimal('budget_taxes', 15, 2)->nullable();
                 $table->decimal('budget_total', 15, 2)->nullable();
-                $table->string('service')->nullable();
-                $table->string('selection_criteria')->nullable();
+                $table->text('service')->nullable();
+                $table->text('selection_criteria')->nullable();
                 $table->time('pm_approval_date')->nullable();
                 $table->time('finance_approval_date')->nullable();
                 
