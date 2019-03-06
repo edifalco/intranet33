@@ -17,6 +17,7 @@ class Contingency extends Model
     protected $fillable = ['name'];
     protected $hidden = [];
     public static $searchable = [
+        'name',
     ];
     
     public static function boot()

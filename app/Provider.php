@@ -24,6 +24,14 @@ class Provider extends Model
     protected $fillable = ['name', 'address', 'postal_code', 'city', 'country', 'phone', 'contact_person', 'email'];
     protected $hidden = [];
     public static $searchable = [
+        'name',
+        'address',
+        'postal_code',
+        'city',
+        'country',
+        'phone',
+        'contact_person',
+        'email',
     ];
     
     public static function boot()

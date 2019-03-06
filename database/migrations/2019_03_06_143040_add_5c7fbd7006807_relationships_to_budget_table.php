@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Add5c7f9838274aeRelationshipsToBudgetTable extends Migration
+class Add5c7fbd7006807RelationshipsToBudgetTable extends Migration
 {
     /**
      * Run the migrations.
@@ -37,21 +37,6 @@ class Add5c7f9838274aeRelationshipsToBudgetTable extends Migration
     public function down()
     {
         Schema::table('budgets', function(Blueprint $table) {
-            if(Schema::hasColumn('budgets', 'projects_id')) {
-                $table->dropForeign('273595_5c7d17b1484ac');
-                $table->dropIndex('273595_5c7d17b1484ac');
-                $table->dropColumn('projects_id');
-            }
-            if(Schema::hasColumn('budgets', 'category_id')) {
-                $table->dropForeign('273595_5c7d17b16f735');
-                $table->dropIndex('273595_5c7d17b16f735');
-                $table->dropColumn('category_id');
-            }
-            if(Schema::hasColumn('budgets', 'year_id')) {
-                $table->dropForeign('273595_5c7d17b19596e');
-                $table->dropIndex('273595_5c7d17b19596e');
-                $table->dropColumn('year_id');
-            }
             
         });
     }

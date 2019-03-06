@@ -14,6 +14,7 @@ class FaqCategory extends Model
     protected $fillable = ['title'];
     protected $hidden = [];
     public static $searchable = [
+        'title',
     ];
     
     public static function boot()

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreFaqCategoriesRequest;
 use App\Http\Requests\Admin\UpdateFaqCategoriesRequest;
+use Yajra\DataTables\DataTables;
 
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -26,9 +27,35 @@ class FaqCategoriesController extends Controller
         }
 
 
-                $faq_categories = FaqCategory::all();
+        
+        if (request()->ajax()) {
+            $query = FaqCategory::query();
+            $template = 'actionsTemplate';
+            
+            $query->select([
+                'faq_categories.id',
+                'faq_categories.title',
+            ]);
+            $table = Datatables::of($query);
 
-        return view('admin.faq_categories.index', compact('faq_categories'));
+            $table->setRowAttr([
+                'data-entry-id' => '{{$id}}',
+            ]);
+            $table->addColumn('massDelete', '&nbsp;');
+            $table->addColumn('actions', '&nbsp;');
+            $table->editColumn('actions', function ($row) use ($template) {
+                $gateKey  = 'faq_category_';
+                $routeKey = 'admin.faq_categories';
+
+                return view($template, compact('row', 'gateKey', 'routeKey'));
+            });
+
+            $table->rawColumns(['actions','massDelete']);
+
+            return $table->make(true);
+        }
+
+        return view('admin.faq_categories.index');
     }
 
     /**
