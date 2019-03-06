@@ -189,19 +189,19 @@
                         </a>
                     </li>@endcan
                     
-                    @can('user_action_access')
-                    <li>
-                        <a href="{{ route('admin.user_actions.index') }}">
-                            <i class="fa fa-th-list"></i>
-                            <span>@lang('global.user-actions.title')</span>
-                        </a>
-                    </li>@endcan
-                    
                     @can('message_access')
                     <li>
                         <a href="{{ route('admin.messages.index') }}">
                             <i class="fa fa-tags"></i>
                             <span>@lang('global.messages.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('user_action_access')
+                    <li>
+                        <a href="{{ route('admin.user_actions.index') }}">
+                            <i class="fa fa-th-list"></i>
+                            <span>@lang('global.user-actions.title')</span>
                         </a>
                     </li>@endcan
                     

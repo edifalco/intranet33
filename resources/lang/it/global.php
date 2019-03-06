@@ -5,7 +5,7 @@ return [
 		'permissions' => [		'title' => 'Permissions',		'fields' => [			'title' => 'Title',		],	],
 		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
 		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
-		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [			'user' => 'User',			'action' => 'Action',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
+		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [		],	],
 		'time-management' => [		'title' => 'Time management',		'fields' => [		],	],
 		'time-work-types' => [		'title' => 'Work types',		'fields' => [		],	],
 		'time-projects' => [		'title' => 'Projects',		'fields' => [		],	],
@@ -66,6 +66,7 @@ return [
 		'projects' => [		'title' => 'Projects',		'fields' => [			'name' => 'Name',			'start-date' => 'Start date',			'end-date' => 'End date',			'logo' => 'Logo',			'status' => 'Status',		],	],
 		'expenses' => [		'title' => 'Expenses',		'fields' => [			'user' => 'Requester',			'project' => 'Project',			'expense-type' => 'Expense type',			'meeting' => 'Meeting',			'contingency' => 'Contingency',			'date' => 'Date',			'due-date' => 'Due date',			'invoice-subtotal' => 'Invoice subtotal',			'invoice-taxes' => 'Invoice taxes',			'invoice-total' => 'Invoice total',			'budget-subtotal' => 'Budget subtotal',			'budget-taxes' => 'Budget taxes',			'budget-total' => 'Budget total',			'provider' => 'Provider',			'service-type' => 'Service type',			'service' => 'Service',			'selection-criteria' => 'Selection criteria',			'pm' => 'PM',			'pm-approval-date' => 'PM approval date',			'finance' => 'Finance resposible',			'finance-approval-date' => 'Finance approval date',			'files' => 'Files',			'created-by' => 'Created by',		],	],
 		'internal-notifications' => [		'title' => 'Notifications',		'fields' => [			'text' => 'Text',			'link' => 'Link',			'users' => 'Users',		],	],
+		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [			'user' => 'User',			'action' => 'Action',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
 	'app_create' => 'Crea',
 	'app_save' => 'Salva',
 	'app_edit' => 'Modifca',
