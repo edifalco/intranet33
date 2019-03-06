@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Add5c7f955912f60RelationshipsToUserActionTable extends Migration
+class Add5c7f9639c5172RelationshipsToUserActionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -29,11 +29,6 @@ class Add5c7f955912f60RelationshipsToUserActionTable extends Migration
     public function down()
     {
         Schema::table('user_actions', function(Blueprint $table) {
-            if(Schema::hasColumn('user_actions', 'user_id')) {
-                $table->dropForeign('274240_5c7f955126f3f');
-                $table->dropIndex('274240_5c7f955126f3f');
-                $table->dropColumn('user_id');
-            }
             
         });
     }
