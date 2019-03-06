@@ -27,8 +27,8 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
  * @property decimal $budget_total
  * @property string $provider
  * @property string $service_type
- * @property string $service
- * @property string $selection_criteria
+ * @property text $service
+ * @property text $selection_criteria
  * @property string $pm
  * @property time $pm_approval_date
  * @property string $finance
@@ -42,6 +42,14 @@ class Expense extends Model implements HasMedia
     protected $fillable = ['date', 'due_date', 'invoice_subtotal', 'invoice_taxes', 'invoice_total', 'budget_subtotal', 'budget_taxes', 'budget_total', 'service', 'selection_criteria', 'pm_approval_date', 'finance_approval_date', 'user_id', 'project_id', 'expense_type_id', 'meeting_id', 'contingency_id', 'provider_id', 'service_type_id', 'pm_id', 'finance_id', 'created_by_id'];
     protected $hidden = [];
     public static $searchable = [
+        'invoice_subtotal',
+        'invoice_taxes',
+        'invoice_total',
+        'budget_subtotal',
+        'budget_taxes',
+        'budget_total',
+        'service',
+        'selection_criteria',
     ];
     
     public static function boot()

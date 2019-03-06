@@ -74,11 +74,11 @@
                         </tr>
                         <tr>
                             <th>@lang('global.expenses.fields.service')</th>
-                            <td field-key='service'>{{ $expense->service }}</td>
+                            <td field-key='service'>{!! $expense->service !!}</td>
                         </tr>
                         <tr>
                             <th>@lang('global.expenses.fields.selection-criteria')</th>
-                            <td field-key='selection_criteria'>{{ $expense->selection_criteria }}</td>
+                            <td field-key='selection_criteria'>{!! $expense->selection_criteria !!}</td>
                         </tr>
                         <tr>
                             <th>@lang('global.expenses.fields.pm')</th>

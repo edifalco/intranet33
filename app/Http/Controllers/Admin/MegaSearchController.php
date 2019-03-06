@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class MegaSearchController extends Controller
 {
     protected $models = [
+        'Expense' => 'global.expenses.title',
     ];
 
     public function search(Request $request)

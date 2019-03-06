@@ -169,7 +169,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('service', trans('global.expenses.fields.service').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('service', old('service'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::textarea('service', old('service'), ['class' => 'form-control ', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('service'))
                         <p class="help-block">
@@ -181,7 +181,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('selection_criteria', trans('global.expenses.fields.selection-criteria').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('selection_criteria', old('selection_criteria'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::textarea('selection_criteria', old('selection_criteria'), ['class' => 'form-control ', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('selection_criteria'))
                         <p class="help-block">
